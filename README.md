@@ -1,2 +1,2 @@
-# library-api
-REST API for a library management system
+# Library Management API
+#### REST API for a library management system.
