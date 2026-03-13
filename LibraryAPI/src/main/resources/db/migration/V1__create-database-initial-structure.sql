@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS books(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     isbn VARCHAR(30) UNIQUE NOT NULL,
     title VARCHAR(255) NOT NULL,
-    edition_number INT,
+    edition_number INT DEFAULT 0,
     copyright_year INT,
     fk_publisher UUID,
     image_file VARCHAR(255),

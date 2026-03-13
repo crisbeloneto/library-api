@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,18 +20,30 @@ import lombok.Setter;
  * @author CrisbeloNeto
  */
 @Entity
-@Table(name = "authors")
 @Getter
 @Setter
-public class Author
+@Table(name = "books", uniqueConstraints =
 {
+    @UniqueConstraint(name = "isbn_unq", columnNames =
+    {
+        "isbn"
+    })
+})
+public class Book
+{
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    // ISBN is an abbreviation for "International Standard Book Number"
+    @Column(length = 30, unique = true, nullable = false)
+    private String isbn;
     
     @Column(nullable = false)
-    private String firstName;
+    private String title;
     
-    @Column(nullable = false)
-    private String lastName;
+    private int editionNumber = 0;
+    private int copyrightYear;
+    private String imageFile;
 }
