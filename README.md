@@ -30,7 +30,7 @@
 
 <ul>
     <li>Relational Database: <strong>PostgreSQL</strong>, version <strong>17</strong></li>
-    <li>Language: <strong>Java</strong>, version <strong>21</strong></li>
+    <li>Language: <strong>Java</strong>, version <strong>17</strong></li>
     <ul>
         <li>Framework: <strong>Spring Boot</strong>, version <strong>3.2.4</strong></li>
         <li>Dependencies Manager: <strong><a href="https://maven.apache.org/">Maven</a></strong></li>
@@ -60,4 +60,6 @@
 </ul>
 <hr>
 
-> URL to access the API documentation: http://localhost:8080/swagger-ui.html
+> URLs to access the API documentation:
+> <br>Locally 👉 http://localhost:8080/swagger-ui.html
+> <br>Online 👉 https://librarymgmtapi.onrender.com/swagger-ui.html
