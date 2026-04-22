@@ -6,16 +6,16 @@
 
 <p align="left"> 
   <a href="https://www.postgresql.org" target="_blank" rel="noreferrer" title="PostgreSQL"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="30" height="30"/> 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original.svg" alt="postgresql" width="30" height="30"/> 
   </a>
   <a href="https://www.java.com" target="_blank" rel="noreferrer" title="Java"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="30" height="30"/> 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" alt="java" width="30" height="30"/> 
   </a> 
   <a href="https://spring.io/" target="_blank" rel="noreferrer" title="Spring">
-    <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="30" height="30"/>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/spring/spring-original.svg" alt="spring" width="30" height="30"/>
   </a>
   <a href="https://maven.apache.org/" target="_blank" rel="noreferrer" title="Maven">
-    <img src="https://www.vectorlogo.zone/logos/apache_maven/apache_maven-icon.svg" alt="maven" width="30" height="30"/>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/maven/maven-original.svg" alt="maven" width="30" height="30"/>
   </a>
   <a href="https://junit.org/" target="_blank" rel="noreferrer" title="JUnit 5">
     <img src="https://github.com/devicons/devicon/blob/master/icons/junit/junit-original-wordmark.svg" alt="junit" width="30" height="30"/>
@@ -24,7 +24,7 @@
     <img src="https://github.com/gilbarbara/logos/blob/main/logos/swagger.svg" alt="swagger" width="30" height="30"/>
   </a>
   <a href="https://postman.com" target="_blank" rel="noreferrer" title="Postman">
-    <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="30" height="30"/>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/postman/postman-original.svg" alt="postman" width="30" height="30"/>
   </a>
 </p>
 
