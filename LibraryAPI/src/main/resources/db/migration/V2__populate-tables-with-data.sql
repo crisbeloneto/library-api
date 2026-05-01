@@ -8,15 +8,29 @@
  */
 
 -- Populate tables with data
-insert into authors (id, first_name, last_name)
-values ('be0ae5d8-3c59-4591-93b2-d01ddab29310', 'Harvey', 'Deitel'),
-       ('50025fd4-3562-4eb4-93c6-3fbea6750a1d', 'Paul', 'Deitel'),
-       ('bf85ebbf-444d-48b1-9745-1cf21c78b743', 'Tem', 'Nieto'),
-       ('a0f305ff-51c2-4277-9033-a0943f7c1849', 'Sean', 'Santry');
+insert into authors (id, name)
+values ('be0ae5d8-3c59-4591-93b2-d01ddab29310', 'Harvey Deitel'),
+       ('50025fd4-3562-4eb4-93c6-3fbea6750a1d', 'Paul Deitel'),
+       ('bf85ebbf-444d-48b1-9745-1cf21c78b743', 'Tem Nieto'),
+       ('a0f305ff-51c2-4277-9033-a0943f7c1849', 'Sean Santry'),
+       ('f1210f00-51e4-4ac0-aea2-7858ad332e24', 'Crissy'),
+       ('bc0e1aa0-7bd9-4359-8d4e-6d409222cac2', 'Diva Flemming'),
+       ('f18fe382-6460-4e65-b541-eea8ac3ca84c', 'Mirian Buss Gonçalves'),
+       ('b21bf67e-07b0-4d73-8cc5-0da66f808118', 'Scott Shacon'),
+       ('6003abb6-0c3e-4511-8f18-f670e2dbe7ae', 'Ben Straub'),
+       ('d462db01-0d9b-45cd-a1d5-536c8195741d', 'Jay Shetty'),
+       ('2acc47f6-d39f-4b1f-b29c-0c5c7fe425ee', 'Solimar Silva'),
+       ('041c8efc-7501-476a-b592-52ce7a108858', 'Robert C. Martin'),
+       ('e7bc6977-c8d3-407d-8749-95359e58c7b0', 'Pedro Godinho'),
+       ('f0140eb2-4853-47ab-9217-a837fb68480f', 'Nuno Paiva');
 
 insert into publishers (id, name)
 values ('9bb6df0d-2627-40aa-b4cb-b78eefb33977', 'Prentice Hall'),
-       ('0f3904c6-52bd-4a71-bcc2-218b4881328e', 'Prentice Hall PTG');
+       ('0f3904c6-52bd-4a71-bcc2-218b4881328e', 'Prentice Hall PTG'),
+       ('2635f666-e562-4546-bcb6-581ce4a05b6b', 'Apress'),
+       ('4afd288e-6d60-4f46-8091-25067051adb5', 'Vozes'),
+       ('9608cb45-6604-47b5-98c7-8422068625bc', 'Âncora'),
+       ('43b77469-82c7-426a-8d88-47a1454477db', 'Lisbon _ International Press');
 
 insert into books (id, isbn, title, edition_number, copyright_year, fk_publisher)
 values ('79fec588-a4aa-4372-82ea-c0a02fd568c1', '0130895725', 'C How to Program', 3, 2001, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
@@ -35,7 +49,15 @@ values ('79fec588-a4aa-4372-82ea-c0a02fd568c1', '0130895725', 'C How to Program'
        ('9529dca6-0471-4016-a3d0-9aa1da09774f', '0130829293', 'The Complete Visual Basic 6 Training Course', 1, 1999, '0f3904c6-52bd-4a71-bcc2-218b4881328e'),
        ('743eff9c-fc1c-4889-b7dd-29a902262086', '0130284173', 'XML How to Program', 1, 2001, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
        ('87473c7a-193e-4ecd-8f3a-a3ddb3fd94f6', '0130284181', 'Pearl How to Program', 1, 2001, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
-       ('d7be87ed-3070-4e42-bff9-2c8bf2d19bef', '0130895601', 'Advanced Java 2 Platform How to Program', 1, 2002, '9bb6df0d-2627-40aa-b4cb-b78eefb33977');
+       ('d7be87ed-3070-4e42-bff9-2c8bf2d19bef', '0130895601', 'Advanced Java 2 Platform How to Program', 1, 2002, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
+       ('b4ecc738-41cd-4fe1-bfc5-86a96c66068e', '0130895602', 'Say to me', 0, null, null),
+       ('e734c3f6-7015-4de0-a5f0-1b1f7a21c812', '0130895603', 'Cálculo B - Funções de várias variáveis, integrais múltiplas, integrais curvilíneas e de superfície', 2, null, null),
+       ('9e325663-6e21-4cea-a576-703c07267704', '0130895604', 'Pro Git _ Everything You Need to Know About Git', 2, 2009, '2635f666-e562-4546-bcb6-581ce4a05b6b'),
+       ('c72f6609-4bb6-4454-aadb-2cb624015e70', '0130895605', 'As 8 Regras do Amor _ How to Find It, Keep It, and Let It Go', 0, null, null),
+       ('7faa888f-5f01-44ee-9071-07b7fbc8ed19', '978-85-326-4920-1', '50 Atitudes do Professor de Sucesso', 0, 2014, '4afd288e-6d60-4f46-8091-25067051adb5'),
+       ('5184bbe4-2002-442e-9233-4b51bd85ba4b', '978-0-13-449416-6', 'Clean Architecture _ A Craftsman"s Guide to Software Structure and Design', 0, 2018, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
+       ('a1e9a1f7-fece-4215-9b1b-54ccf6e09b1d', '0130895606', 'Desistir Não é Opção', 0, null, '9608cb45-6604-47b5-98c7-8422068625bc'),
+       ('c2422c07-3cdf-4526-8731-5fe63cd83cdc', '0130895607', 'O Papel do Banco Nacional de Angola no Sistema Financeiro Angolano', 0, null, '43b77469-82c7-426a-8d88-47a1454477db');
 
 insert into book_author (fk_book, fk_author)
 values ('79fec588-a4aa-4372-82ea-c0a02fd568c1', 'be0ae5d8-3c59-4591-93b2-d01ddab29310'),
@@ -79,4 +101,13 @@ values ('79fec588-a4aa-4372-82ea-c0a02fd568c1', 'be0ae5d8-3c59-4591-93b2-d01ddab
        ('9529dca6-0471-4016-a3d0-9aa1da09774f', 'bf85ebbf-444d-48b1-9745-1cf21c78b743'),
        ('743eff9c-fc1c-4889-b7dd-29a902262086', 'bf85ebbf-444d-48b1-9745-1cf21c78b743'),
        ('87473c7a-193e-4ecd-8f3a-a3ddb3fd94f6', 'bf85ebbf-444d-48b1-9745-1cf21c78b743'),
-       ('d7be87ed-3070-4e42-bff9-2c8bf2d19bef', 'a0f305ff-51c2-4277-9033-a0943f7c1849');
+       ('d7be87ed-3070-4e42-bff9-2c8bf2d19bef', 'a0f305ff-51c2-4277-9033-a0943f7c1849'),
+       ('b4ecc738-41cd-4fe1-bfc5-86a96c66068e', 'f1210f00-51e4-4ac0-aea2-7858ad332e24'),
+       ('e734c3f6-7015-4de0-a5f0-1b1f7a21c812', 'bc0e1aa0-7bd9-4359-8d4e-6d409222cac2'),
+       ('e734c3f6-7015-4de0-a5f0-1b1f7a21c812', 'f18fe382-6460-4e65-b541-eea8ac3ca84c'),
+       ('9e325663-6e21-4cea-a576-703c07267704', 'b21bf67e-07b0-4d73-8cc5-0da66f808118'),
+       ('9e325663-6e21-4cea-a576-703c07267704', '6003abb6-0c3e-4511-8f18-f670e2dbe7ae'),
+       ('c72f6609-4bb6-4454-aadb-2cb624015e70', 'd462db01-0d9b-45cd-a1d5-536c8195741d'),
+       ('7faa888f-5f01-44ee-9071-07b7fbc8ed19', '2acc47f6-d39f-4b1f-b29c-0c5c7fe425ee'),
+       ('a1e9a1f7-fece-4215-9b1b-54ccf6e09b1d', 'e7bc6977-c8d3-407d-8749-95359e58c7b0'),
+       ('c2422c07-3cdf-4526-8731-5fe63cd83cdc', 'f0140eb2-4853-47ab-9217-a837fb68480f');

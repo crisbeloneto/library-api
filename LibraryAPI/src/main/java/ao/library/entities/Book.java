@@ -45,5 +45,5 @@ public class Book
     
     private int editionNumber = 0;
     private int copyrightYear;
-    private String imageFile;
+    private String imageUrl;
 }

@@ -15,8 +15,9 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 CREATE TABLE IF NOT EXISTS authors(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP(6) WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS publishers(
@@ -31,7 +32,7 @@ CREATE TABLE IF NOT EXISTS books(
     edition_number INT DEFAULT 0,
     copyright_year INT,
     fk_publisher UUID,
-    image_file VARCHAR(255),
+    image_url VARCHAR(255),
     CONSTRAINT publisher_fkey FOREIGN KEY (fk_publisher) REFERENCES publishers(id)
 );
 
