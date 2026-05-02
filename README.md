@@ -47,11 +47,11 @@
       HTTP/REST Client
              ↓↑
 Controller (Presentation Layer)
-              ↓
+             ↓↑
 Service (Business Logic Layer)
-              ↓
+             ↓↑
 Repository (Data Access Layer)
-              ↓
+             ↓↑
 Database/PostgreSQL (Data Layer)
 ```
 <hr>
