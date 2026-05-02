@@ -43,7 +43,13 @@
 
 ### Features
 <ul>
-    <li>Unit Tests with JUnit 5 and Mockito</li>
+    <li>Data modeling with relationships</li>
+    <li><strong>CRUD</strong> operations of entities</li>
+    <li><strong>Validation</strong> of input data, and return of <strong>clear validation error messages</strong></li>
+    <li><strong>Custom exception handling</strong> to clearly communicate failures to the client and return appropriate <strong>HTTP status codes</strong> (200, 201, 400, 404, 500, etc.)</li>
+    <li>Simple <strong>authentication</strong> mechanism using a <strong>static API Key</strong> to secure certain routes</li>
+    <li><strong>API documentation</strong> using Swagger</li>
+    <li><strong>Unit Tests</strong> with JUnit 5 and Mockito</li>
 </ul>
 <hr>
 
