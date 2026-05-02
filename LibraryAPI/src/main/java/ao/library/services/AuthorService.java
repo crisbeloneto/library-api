@@ -5,11 +5,16 @@
 package ao.library.services;
 
 import ao.library.dtos.AuthorResponse;
+import ao.library.entities.Author;
 import ao.library.mappers.AuthorMapper;
 import ao.library.repositories.AuthorRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -31,5 +36,13 @@ public class AuthorService
                 .stream()
                 .map(authorMapper::toDto)
                 .collect(Collectors.toList());
+    }
+    
+    public Page<AuthorResponse> getAuthorsPaginated(int pageNumber, int pageSize, String sortOrder)
+    {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortOrder).descending());
+        Page<Author> authorsPage = repository.findAll(pageable);
+        Page<AuthorResponse> responsePage = authorsPage.map(authorMapper::toDto);
+        return responsePage;
     }
 }

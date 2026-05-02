@@ -9,9 +9,11 @@ import ao.library.services.AuthorService;
 import ao.library.utils.Constantes;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,12 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(Constantes.ROOT_ROUTE + "/author")
 public class AuthorController
-{    
+{
+
     @Autowired
     private AuthorService service;
-    
+
     /**
      * Goal : Retrieve all the authors
+     *
      * @return : List of all existing authors
      */
     @GetMapping
@@ -34,5 +38,14 @@ public class AuthorController
     {
         List<AuthorResponse> authors = service.getAuthors();
         return ResponseEntity.ok(authors);
+    }
+
+    @GetMapping("/get-authors-paginated")
+    public ResponseEntity<Page<AuthorResponse>> getAuthorsPaginated(
+            @RequestParam(defaultValue = "0") int pageNumber,
+            @RequestParam(defaultValue = "0") int pageSize,
+            @RequestParam(defaultValue = "createdAt") String orderBy)
+    {
+        return ResponseEntity.ok(service.getAuthorsPaginated(pageNumber, pageSize, orderBy));
     }
 }
