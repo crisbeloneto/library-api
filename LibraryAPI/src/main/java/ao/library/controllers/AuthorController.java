@@ -8,10 +8,12 @@ import ao.library.dtos.AuthorResponse;
 import ao.library.services.AuthorService;
 import ao.library.utils.Constantes;
 import java.util.List;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,7 +44,9 @@ public class AuthorController
 
     /**
      * Goal: Retrieve a paginated list of all existing authors
-     * @param pageNumber : The number of the page in which the listing would start
+     *
+     * @param pageNumber : The number of the page in which the listing would
+     * start
      * @param pageSize : The amount of items to present
      * @param orderBy : The sorting attribute for the paginated list
      * @return : Paginated list of all existing authors
@@ -54,5 +58,18 @@ public class AuthorController
             @RequestParam(defaultValue = "createdAt") String orderBy)
     {
         return ResponseEntity.ok(service.getAuthorsPaginated(pageNumber, pageSize, orderBy));
+    }
+
+    /**
+     * Goal : Retrieve a specific author
+     *
+     * @param id : An author's id
+     * @return : Details of the specific author
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<AuthorResponse> getAuthorById(@PathVariable UUID id)
+    {
+        AuthorResponse response = service.getAuthorById(id);
+        return ResponseEntity.ok(response);
     }
 }
