@@ -40,6 +40,13 @@ public class AuthorController
         return ResponseEntity.ok(authors);
     }
 
+    /**
+     * Goal: Retrieve a paginated list of all existing authors
+     * @param pageNumber : The number of the page in which the listing would start
+     * @param pageSize : The amount of items to present
+     * @param orderBy : The sorting attribute for the paginated list
+     * @return : Paginated list of all existing authors
+     */
     @GetMapping("/get-authors-paginated")
     public ResponseEntity<Page<AuthorResponse>> getAuthorsPaginated(
             @RequestParam(defaultValue = "0") int pageNumber,
