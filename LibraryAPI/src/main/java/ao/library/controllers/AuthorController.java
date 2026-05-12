@@ -4,9 +4,11 @@
  */
 package ao.library.controllers;
 
+import ao.library.dtos.AuthorRequest;
 import ao.library.dtos.AuthorResponse;
 import ao.library.services.AuthorService;
 import ao.library.utils.Constantes;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,6 +74,21 @@ public class AuthorController
     public ResponseEntity<AuthorResponse> getAuthorById(@PathVariable UUID id)
     {
         AuthorResponse response = service.getAuthorById(id);
+        return ResponseEntity.ok(response);
+    }
+    
+    /**
+     * Goal : Update info of an existing author
+     * 
+     * @param id
+     * @param request
+     * @return : Updated author, with appropriate HTTP status code (200 Ok)
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<AuthorResponse> update(
+            @PathVariable UUID id, @Valid @RequestBody AuthorRequest request)
+    {
+        AuthorResponse response = service.update(id, request);
         return ResponseEntity.ok(response);
     }
 }

@@ -4,6 +4,7 @@
  */
 package ao.library.services;
 
+import ao.library.dtos.AuthorRequest;
 import ao.library.dtos.AuthorResponse;
 import ao.library.entities.Author;
 import ao.library.exceptions.InvalidArgumentException;
@@ -63,5 +64,16 @@ public class AuthorService
             throw new InvalidArgumentException("Author's name is required");
         }
         return authorMapper.toDto(author);
+    }
+    
+    @Transactional
+    public AuthorResponse update(UUID id, AuthorRequest request)
+    {
+        Author author = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Author not found with id: " + id));
+        
+        authorMapper.updateEntityFromDto(request, author);
+        Author updatedAuthor = repository.save(author);
+        return authorMapper.toDto(updatedAuthor);
     }
 }
