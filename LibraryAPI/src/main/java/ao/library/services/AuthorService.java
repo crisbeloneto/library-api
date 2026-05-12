@@ -35,6 +35,14 @@ public class AuthorService
 
     @Autowired
     private AuthorMapper authorMapper;
+    
+    @Transactional
+    public AuthorResponse createAuthor(AuthorRequest request)
+    {
+        Author author = authorMapper.toEntity(request);
+        Author registeredAuthor = repository.save(author);
+        return authorMapper.toDto(registeredAuthor);
+    }
 
     public List<AuthorResponse> getAuthors()
     {

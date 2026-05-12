@@ -13,9 +13,11 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +36,20 @@ public class AuthorController
     @Autowired
     private AuthorService service;
 
+    /**
+     * Goal : Create a new author
+     * 
+     * @param request : Input data in the request body
+     * @return : Created author, with appropriate Http status code (201 Created)
+     */
+    @PostMapping
+    public ResponseEntity<AuthorResponse> createAuthor(
+            @Valid @RequestBody AuthorRequest request)
+    {
+        AuthorResponse response = service.createAuthor(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+    
     /**
      * Goal : Retrieve all the authors
      *
