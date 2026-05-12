@@ -35,7 +35,7 @@ public class AuthorService
 
     @Autowired
     private AuthorMapper authorMapper;
-    
+
     @Transactional
     public AuthorResponse createAuthor(AuthorRequest request)
     {
@@ -54,10 +54,10 @@ public class AuthorService
 
     public Page<AuthorResponse> getAuthorsPaginated(int pageNumber, int pageSize, String sortOrder)
     {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortOrder).descending());
+        int pageIndex = Math.max(pageNumber - 1, 0);
+        Pageable pageable = PageRequest.of(pageIndex, pageSize, Sort.by(sortOrder).ascending());
         Page<Author> authorsPage = repository.findAll(pageable);
-        Page<AuthorResponse> responsePage = authorsPage.map(authorMapper::toDto);
-        return responsePage;
+        return authorsPage.map(authorMapper::toDto);
     }
 
     @Transactional(readOnly = true)
@@ -73,13 +73,13 @@ public class AuthorService
         }
         return authorMapper.toDto(author);
     }
-    
+
     @Transactional
     public AuthorResponse update(UUID id, AuthorRequest request)
     {
         Author author = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Author not found with id: " + id));
-        
+
         authorMapper.updateEntityFromDto(request, author);
         Author updatedAuthor = repository.save(author);
         return authorMapper.toDto(updatedAuthor);

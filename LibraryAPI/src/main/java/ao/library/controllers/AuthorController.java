@@ -38,7 +38,7 @@ public class AuthorController
 
     /**
      * Goal : Create a new author
-     * 
+     *
      * @param request : Input data in the request body
      * @return : Created author, with appropriate Http status code (201 Created)
      */
@@ -49,7 +49,7 @@ public class AuthorController
         AuthorResponse response = service.createAuthor(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    
+
     /**
      * Goal : Retrieve all the authors
      *
@@ -73,8 +73,8 @@ public class AuthorController
      */
     @GetMapping("/get-authors-paginated")
     public ResponseEntity<Page<AuthorResponse>> getAuthorsPaginated(
-            @RequestParam(defaultValue = "0") int pageNumber,
-            @RequestParam(defaultValue = "0") int pageSize,
+            @RequestParam(defaultValue = "1") int pageNumber,
+            @RequestParam(defaultValue = "10") int pageSize,
             @RequestParam(defaultValue = "createdAt") String orderBy)
     {
         return ResponseEntity.ok(service.getAuthorsPaginated(pageNumber, pageSize, orderBy));
@@ -92,10 +92,10 @@ public class AuthorController
         AuthorResponse response = service.getAuthorById(id);
         return ResponseEntity.ok(response);
     }
-    
+
     /**
      * Goal : Update info of an existing author
-     * 
+     *
      * @param id
      * @param request
      * @return : Updated author, with appropriate HTTP status code (200 Ok)
