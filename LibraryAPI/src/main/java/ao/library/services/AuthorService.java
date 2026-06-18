@@ -84,4 +84,14 @@ public class AuthorService
         Author updatedAuthor = repository.save(author);
         return authorMapper.toDto(updatedAuthor);
     }
+
+    @Transactional
+    public void delete(UUID id)
+    {
+        if (!repository.existsById(id))
+        {
+            throw new ResourceNotFoundException("Author not found with id: " + id);
+        }
+        repository.deleteById(id);
+    }
 }
