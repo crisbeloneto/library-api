@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS books(
     copyright_year INT,
     fk_publisher UUID,
     image_url VARCHAR(255),
+    created_at TIMESTAMP(6) WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP(6) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT publisher_fkey FOREIGN KEY (fk_publisher) REFERENCES publishers(id)
 );
 
