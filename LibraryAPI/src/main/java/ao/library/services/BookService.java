@@ -19,6 +19,10 @@ import ao.library.repositories.PublisherRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -97,4 +101,11 @@ public class BookService
                 .collect(Collectors.toList());
     }
 
+    public Page<BookResponse> getBooksPaginated(int pageNumber, int pageSize, String sortOrder)
+    {
+        int pageIndex = Math.max(pageNumber - 1, 0);
+        Pageable pageable = PageRequest.of(pageIndex, pageSize, Sort.by(sortOrder).ascending());
+        Page<Book> booksPage = repository.findAll(pageable);
+        return booksPage.map(bookMapper::toDto);
+    }
 }

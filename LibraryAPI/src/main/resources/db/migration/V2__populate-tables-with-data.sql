@@ -50,14 +50,14 @@ values ('79fec588-a4aa-4372-82ea-c0a02fd568c1', '0130895725', 'C How to Program'
        ('743eff9c-fc1c-4889-b7dd-29a902262086', '0130284173', 'XML How to Program', 1, 2001, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
        ('87473c7a-193e-4ecd-8f3a-a3ddb3fd94f6', '0130284181', 'Pearl How to Program', 1, 2001, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
        ('d7be87ed-3070-4e42-bff9-2c8bf2d19bef', '0130895601', 'Advanced Java 2 Platform How to Program', 1, 2002, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
-       ('b4ecc738-41cd-4fe1-bfc5-86a96c66068e', '0130895602', 'Say to me', 0, null, null),
-       ('e734c3f6-7015-4de0-a5f0-1b1f7a21c812', '0130895603', 'Cálculo B - Funções de várias variáveis, integrais múltiplas, integrais curvilíneas e de superfície', 2, null, null),
+       ('b4ecc738-41cd-4fe1-bfc5-86a96c66068e', '0130895602', 'Say to me', 0, 0, null),
+       ('e734c3f6-7015-4de0-a5f0-1b1f7a21c812', '0130895603', 'Cálculo B - Funções de várias variáveis, integrais múltiplas, integrais curvilíneas e de superfície', 2, 0, null),
        ('9e325663-6e21-4cea-a576-703c07267704', '0130895604', 'Pro Git _ Everything You Need to Know About Git', 2, 2009, '2635f666-e562-4546-bcb6-581ce4a05b6b'),
-       ('c72f6609-4bb6-4454-aadb-2cb624015e70', '0130895605', 'As 8 Regras do Amor _ How to Find It, Keep It, and Let It Go', 0, null, null),
+       ('c72f6609-4bb6-4454-aadb-2cb624015e70', '0130895605', 'As 8 Regras do Amor _ How to Find It, Keep It, and Let It Go', 0, 0, null),
        ('7faa888f-5f01-44ee-9071-07b7fbc8ed19', '978-85-326-4920-1', '50 Atitudes do Professor de Sucesso', 0, 2014, '4afd288e-6d60-4f46-8091-25067051adb5'),
        ('5184bbe4-2002-442e-9233-4b51bd85ba4b', '978-0-13-449416-6', 'Clean Architecture _ A Craftsman"s Guide to Software Structure and Design', 0, 2018, '9bb6df0d-2627-40aa-b4cb-b78eefb33977'),
-       ('a1e9a1f7-fece-4215-9b1b-54ccf6e09b1d', '0130895606', 'Desistir Não é Opção', 0, null, '9608cb45-6604-47b5-98c7-8422068625bc'),
-       ('c2422c07-3cdf-4526-8731-5fe63cd83cdc', '0130895607', 'O Papel do Banco Nacional de Angola no Sistema Financeiro Angolano', 0, null, '43b77469-82c7-426a-8d88-47a1454477db');
+       ('a1e9a1f7-fece-4215-9b1b-54ccf6e09b1d', '0130895606', 'Desistir Não é Opção', 0, 0, '9608cb45-6604-47b5-98c7-8422068625bc'),
+       ('c2422c07-3cdf-4526-8731-5fe63cd83cdc', '0130895607', 'O Papel do Banco Nacional de Angola no Sistema Financeiro Angolano', 0, 0, '43b77469-82c7-426a-8d88-47a1454477db');
 
 insert into book_author (fk_book, fk_author)
 values ('79fec588-a4aa-4372-82ea-c0a02fd568c1', 'be0ae5d8-3c59-4591-93b2-d01ddab29310'),

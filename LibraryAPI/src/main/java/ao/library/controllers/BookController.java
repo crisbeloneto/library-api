@@ -11,12 +11,14 @@ import ao.library.utils.Constantes;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -54,5 +56,23 @@ public class BookController
     {
         List<BookResponse> books = service.getBooks();
         return ResponseEntity.ok(books);
+    }
+
+    /**
+     * Goal: Retrieve all the books, with pagination
+     *
+     * @param pageNumber: The number of the page in which the listing should
+     * start
+     * @param pageSize: The amount of items to present per page
+     * @param orderBy: The sorting attribute for the paginated list
+     * @return: A paginated list of all existing books
+     */
+    @GetMapping("/get-books-paginated")
+    public ResponseEntity<Page<BookResponse>> getBooksPaginated(
+            @RequestParam(defaultValue = "1") int pageNumber,
+            @RequestParam(defaultValue = "10") int pageSize,
+            @RequestParam(defaultValue = "createdAt") String orderBy)
+    {
+        return ResponseEntity.ok(service.getBooksPaginated(pageNumber, pageSize, orderBy));
     }
 }
