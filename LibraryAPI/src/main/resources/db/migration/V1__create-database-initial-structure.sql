@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS books(
     isbn VARCHAR(30) UNIQUE NOT NULL,
     title VARCHAR(255) NOT NULL,
     edition_number INT DEFAULT 0,
-    copyright_year INT,
+    copyright_year INT DEFAULT 0,
     fk_publisher UUID,
     image_url VARCHAR(255),
     created_at TIMESTAMP(6) WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
