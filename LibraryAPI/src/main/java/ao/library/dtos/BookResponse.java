@@ -5,6 +5,7 @@
 package ao.library.dtos;
 
 import ao.library.entities.Publisher;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -25,10 +26,13 @@ public class BookResponse
     private UUID id;
     private String isbn;
     private String title;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     private int editionNumber;
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     private int copyrightYear;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Publisher publisher;
     private List<AuthorResponse> authors;
 }

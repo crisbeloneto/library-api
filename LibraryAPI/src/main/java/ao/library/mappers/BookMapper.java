@@ -39,7 +39,7 @@ public class BookMapper
                 book.getCopyrightYear(),
                 book.getCreatedAt(),
                 book.getUpdatedAt(),
-                book.getPublisher() != null ? book.getPublisher() : null,
+                book.getPublisher(),
                 book.getAuthors() != null ? book.getAuthors().stream()
                 .map(author -> new AuthorResponse(
                 author.getId(), author.getName(), author.getCreatedAt(), author.getUpdatedAt()))

@@ -54,7 +54,7 @@ public class Book
     private String title;
 
     private int editionNumber = 0;
-    private int copyrightYear;
+    private int copyrightYear = 0;
     private String imageUrl;
 
     @Column(nullable = false, updatable = false)
@@ -62,11 +62,11 @@ public class Book
 
     @Column
     private LocalDateTime updatedAt;
-    
+
     @ManyToOne
     @JoinColumn(name = "fk_publisher", foreignKey = @ForeignKey(name = "publisher_fkey"))
     private Publisher publisher;
-    
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "book_author",
             joinColumns = @JoinColumn(name = "fk_book", foreignKey = @ForeignKey(name = "book_fkey")),
