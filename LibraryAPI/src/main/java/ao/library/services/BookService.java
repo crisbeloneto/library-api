@@ -17,6 +17,7 @@ import ao.library.repositories.AuthorRepository;
 import ao.library.repositories.BookRepository;
 import ao.library.repositories.PublisherRepository;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -107,5 +108,13 @@ public class BookService
         Pageable pageable = PageRequest.of(pageIndex, pageSize, Sort.by(sortOrder).ascending());
         Page<Book> booksPage = repository.findAll(pageable);
         return booksPage.map(bookMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public BookResponse getBookById(UUID id)
+    {
+        Book book = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + id));
+        return bookMapper.toDto(book);
     }
 }
