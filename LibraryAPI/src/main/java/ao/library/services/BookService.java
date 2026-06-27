@@ -17,6 +17,7 @@ import ao.library.repositories.AuthorRepository;
 import ao.library.repositories.BookRepository;
 import ao.library.repositories.PublisherRepository;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,10 +46,11 @@ public class BookService
     public BookResponse createBook(BookRequest request)
     {
         // If ISBN already exists
-        if (repository.existsByIsbn(request.getIsbn())) {
+        if (repository.existsByIsbn(request.getIsbn()))
+        {
             throw new DuplicateEntryException("ISBN already exists");
         }
-        
+
         // Validate if title is not empty
         if (request.getTitle() == null || request.getTitle().isBlank())
         {
@@ -85,4 +87,14 @@ public class BookService
         Book createdBook = repository.save(book);
         return bookMapper.toDto(createdBook);
     }
+
+    @Transactional(readOnly = true)
+    public List<BookResponse> getBooks()
+    {
+        return repository.findAll()
+                .stream()
+                .map(bookMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
 }

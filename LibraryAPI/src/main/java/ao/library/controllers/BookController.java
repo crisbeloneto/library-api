@@ -9,9 +9,11 @@ import ao.library.dtos.BookResponse;
 import ao.library.services.BookService;
 import ao.library.utils.Constantes;
 import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +33,7 @@ public class BookController
 
     /**
      * Goal: To create a new book
-     * 
+     *
      * @param request : Input data on request body
      * @return : Created book, with appropriate HTTP status (201 CREATED)
      */
@@ -40,5 +42,17 @@ public class BookController
     {
         BookResponse response = service.createBook(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    /**
+     * Goal: Retrieve all the books
+     *
+     * @return: List of all existing books
+     */
+    @GetMapping
+    public ResponseEntity<List<BookResponse>> getBooks()
+    {
+        List<BookResponse> books = service.getBooks();
+        return ResponseEntity.ok(books);
     }
 }
